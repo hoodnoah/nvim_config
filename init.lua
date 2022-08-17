@@ -7,9 +7,9 @@ vim.g.mapleader = ","
 vim.g.localleader = "\\"
 
 -- IMPORTS
+require('keys')     -- Keymaps
 require('vars')     -- Variables
 require('opts')     -- Options
-require('keys')     -- Keymaps
 require('plug')     -- Plugins
 
 -- PLUGINS
