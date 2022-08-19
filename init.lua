@@ -9,8 +9,8 @@ vim.g.localleader = "\\"
 -- IMPORTS
 require('keys')     -- Keymaps
 require('vars')     -- Variables
-require('opts')     -- Options
 require('plug')     -- Plugins
+require('opts')     -- Options
 
 -- PLUGINS
 require('nvim-tree').setup{}
