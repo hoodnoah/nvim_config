@@ -22,54 +22,60 @@ require('lualine').setup {
 require('nvim-autopairs').setup{}
 
 -- nvim-cmp
-local cmp = require('cmp')
-local lspkind = require('lspkind')
-cmp.setup{
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+local lspconfig = require('lspconfig')
+
+-- enable some language servers w/ additional completion capabilities
+local servers = { 'pyright', 'tsserver' }
+
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+        capabilities = capabilities
+    }
+end
+
+-- luasnip setup
+local luasnip = require('luasnip')
+
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end
+    },
     mapping = cmp.mapping.preset.insert({
-          ['<Tab>'] = function(fallback)
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true
+        },
+        ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              cmp.select_next_item()
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             else
-              fallback()
+                fallback()
             end
-          end,
-          ['<S-Tab>'] = function(fallback)
+        end, {'i', 's'}),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              cmp.select_prev_item()
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
-              fallback()
+                fallback()
             end
-          end,
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<Esc>'] = cmp.mapping.close(),
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        }),
-   sources = {
-      { name = "nvim_lsp" },
-      { name = "path" },
-      { name = "buffer" },
-   },
-   completion = {
-       keyword_length = 1,
-       completeopt = "menu,noselect"
-   },
-   view = {
-       entries = "custom"
-   },
-   formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol_text",
-      menu = ({
-        nvim_lsp = "[LSP]",
-        ultisnips = "[US]",
-        nvim_lua = "[Lua]",
-        path = "[Path]",
-        buffer = "[Buffer]",
-        emoji = "[Emoji]",
-          omni = "[Omni]",
-      }),
+        end, {'i', 's'})
     }),
-  },
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip'},
+    },
 }

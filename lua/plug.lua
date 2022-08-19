@@ -27,12 +27,10 @@ return require('packer').startup(function(use)
   use { 'junegunn/gv.vim' }                          -- commit history
   use { 'windwp/nvim-autopairs' } 
 
-  -- [[ lsp ]]
-  use { 'neovim/nvim-lspconfig' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'onsails/lspkind.nvim' }
+  -- [[ autocompletion ]]
+  use { 'neovim/nvim-lspconfig' }                    -- collection of configurations for built-in lsp client
+  use { 'hrsh7th/nvim-cmp' }                         -- plugin for autocompletion
+  use { 'hrsh7th/cmp-nvim-lsp' }                     -- lsp source for nvim-cmp
+  use { 'saadparwaiz1/cmp_luasnip' }                 -- snippets source for nvim-cmp
+  use { 'L3MON4D3/LuaSnip' }                         -- snippets plugin
 end)
