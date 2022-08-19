@@ -78,4 +78,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip'},
     },
+
+    -- pretty tabline
+    require('luatab').setup{}
 }

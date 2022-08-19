@@ -34,5 +34,9 @@ return require('packer').startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }                 -- snippets source for nvim-cmp
   use { 'L3MON4D3/LuaSnip' }                         -- snippets plugin
 
+  -- fsharp language support
   use { 'ionide/Ionide-vim' }
+
+  -- prettier buffer tabs
+  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
 end)
