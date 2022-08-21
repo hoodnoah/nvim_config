@@ -87,6 +87,9 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
+  -- FSharp-only
+  use "ionide/Ionide-vim"                               -- only seems to work on mac/linux atm
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
