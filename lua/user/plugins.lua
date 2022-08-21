@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"                           -- Auto close brackets, parens, quotes, etc.
   use "numToStr/Comment.nvim"                           -- Easy commenting 
   use "JoosepAlviste/nvim-ts-context-commentstring"     -- Context-aware comment strings
+  use "lewis6991/gitsigns.nvim"                         -- Edit indicators, etc. in editor
 
 
   -- [[ theme ]]
