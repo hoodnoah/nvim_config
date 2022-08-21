@@ -110,6 +110,7 @@ cmp.setup {
     end,
   },
   sources = {                                   -- the order of these matters re: which is shown to you first while programming
+    { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
