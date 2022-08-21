@@ -48,6 +48,8 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim"                           -- Easy commenting 
   use "JoosepAlviste/nvim-ts-context-commentstring"     -- Context-aware comment strings
   use "lewis6991/gitsigns.nvim"                         -- Edit indicators, etc. in editor
+  use "kyazdani42/nvim-web-devicons"                    -- Icons for nvim-tree
+  use "kyazdani42/nvim-tree.lua"                        -- Nvim-tree itself; file explorer
 
 
   -- [[ theme ]]
