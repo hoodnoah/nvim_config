@@ -50,6 +50,8 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"                         -- Edit indicators, etc. in editor
   use "kyazdani42/nvim-web-devicons"                    -- Icons for nvim-tree
   use "kyazdani42/nvim-tree.lua"                        -- Nvim-tree itself; file explorer
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
 
 
   -- [[ theme ]]
