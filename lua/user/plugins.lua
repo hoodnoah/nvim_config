@@ -55,8 +55,9 @@ return packer.startup(function(use)
 
 
   -- [[ theme ]]
-  -- use "folke/tokyonight.nvim"                        -- colorscheme
-  use "lunarvim/synthwave84.nvim"
+  use "folke/tokyonight.nvim"                        -- colorscheme
+  use "tamago324/nlsp-settings.nvim"                    -- colorscheme re: lsp
+  --[[ use "lunarvim/synthwave84.nvim" ]]
 
     -- cmp plugins
   use "hrsh7th/nvim-cmp"                                -- The completion plugin
@@ -89,7 +90,10 @@ return packer.startup(function(use)
   use "nvim-treesitter/playground"
 
   -- FSharp-only
-  use "ionide/Ionide-vim"                               -- only seems to work on mac/linux atm
+  use "ionide/Ionide-vim"
+
+  -- Lualine
+  use "nvim-lualine/lualine.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
