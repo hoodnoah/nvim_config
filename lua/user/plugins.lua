@@ -52,10 +52,16 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"                        -- Nvim-tree itself; file explorer
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+  use "ahmedkhalf/project.nvim"
+  use "lewis6991/impatient.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use 'goolord/alpha-nvim'
+  use "antoinemadec/FixCursorHold.nvim"                 -- This is needed to fix lsp doc highlight
+  use "folke/which-key.nvim"
 
 
   -- [[ theme ]]
-  use "folke/tokyonight.nvim"                        -- colorscheme
+  use "folke/tokyonight.nvim"                           -- colorscheme
   --[[ use "lunarvim/synthwave84.nvim" ]]
   use "tamago324/nlsp-settings.nvim"                    -- colorscheme re: lsp
 
@@ -107,6 +113,7 @@ return packer.startup(function(use)
     "kkoomen/vim-doge",
     run = ":call doge#install()"
   }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
