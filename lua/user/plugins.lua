@@ -56,8 +56,8 @@ return packer.startup(function(use)
 
   -- [[ theme ]]
   use "folke/tokyonight.nvim"                        -- colorscheme
-  use "tamago324/nlsp-settings.nvim"                    -- colorscheme re: lsp
   --[[ use "lunarvim/synthwave84.nvim" ]]
+  use "tamago324/nlsp-settings.nvim"                    -- colorscheme re: lsp
 
     -- cmp plugins
   use "hrsh7th/nvim-cmp"                                -- The completion plugin
@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "jose-elias-alvarez/null-ls.nvim"                 -- formatting
+  use "alefpereira/pyenv-pyright"                       -- pyright venv
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -97,6 +98,15 @@ return packer.startup(function(use)
 
   -- Toggleterm
   use "akinsho/toggleterm.nvim"
+
+  -- Emmet
+  use "mattn/emmet-vim"
+
+  -- Docstring completions
+  use {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
