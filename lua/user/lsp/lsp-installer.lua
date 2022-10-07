@@ -12,6 +12,7 @@ local servers = {
   "bashls",
   "jsonls",
   "yamlls",
+  "ionide",
 }
 
 lsp_installer.setup()

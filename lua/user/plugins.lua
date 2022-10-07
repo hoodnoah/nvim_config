@@ -96,6 +96,9 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
+  -- FSharp
+  use { "ionide/Ionide-vim", commit = "a0685e9184c75beb6c608d783389d95446775c93" } -- FSharp lang features
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
