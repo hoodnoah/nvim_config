@@ -12,7 +12,6 @@ local servers = {
   "bashls",
   "jsonls",
   "yamlls",
-  "ionide",
 }
 
 lsp_installer.setup()
@@ -42,3 +41,18 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+
+-- setup ionide
+local ionide = require("ionide")
+vim.g["fsharp#lsp_auto_setup"] = 0
+
+ionide.setup({
+  autostart = true,
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+  flags = {
+    debounce_text_changes = 150
+  }
+})
+
+
