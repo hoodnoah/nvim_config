@@ -99,6 +99,10 @@ return packer.startup(function(use)
   -- FSharp
   use { "ionide/Ionide-vim", commit = "a0685e9184c75beb6c608d783389d95446775c93" } -- FSharp lang features
 
+  -- Mason
+  use {"williamboman/mason.nvim"}
+  use {"williamboman/mason-lspconfig.nvim"}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
