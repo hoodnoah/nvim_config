@@ -8,10 +8,10 @@ local servers = {
   "cssls",
   "html",
   "tsserver",
-  "pyright",
   "bashls",
   "jsonls",
   "yamlls",
+  "jedi_language_server",
 }
 
 lsp_installer.setup()
